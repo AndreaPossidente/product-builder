@@ -1,0 +1,45 @@
+@use "@/styles/mixins" as m;
+
+///
+/// Header | Navigation
+///
+@include m.media(lg) {
+  .cd-builder-main-nav {
+    li {
+      display: inline-block;
+    }
+    a {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #5d7c89;
+      padding: 0.7em 0.8em;
+      border-bottom: 2px solid transparent;
+      -webkit-transition: color 0.2s, border-color 0.2s;
+      transition: color 0.2s, border-color 0.2s;
+      &:hover {
+        color: #ffb500;
+      }
+    }
+    .active {
+      a {
+        border-color: #ffb500;
+        color: #ffb500;
+        &:hover {
+          color: #ffb500;
+        }
+      }
+    }
+  }
+  .cd-builder-main-nav.disabled {
+    li {
+      &:not(.active) {
+        a {
+          color: rgba(93, 124, 137, 0.5);
+        }
+      }
+    }
+  }
+}

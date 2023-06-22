@@ -1,0 +1,111 @@
+@use "@/styles/mixins" as m;
+
+///
+/// Steps | Summary
+///
+.cd-builder-steps {
+  .summary-list {
+    > li {
+      position: relative;
+      margin: 2em 0;
+    }
+    h2 {
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 2em;
+      letter-spacing: 0.1em;
+      &::before {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 32px;
+        background: #ededed;
+        margin-bottom: 0.6em;
+      }
+    }
+    .product-preview {
+      display: block;
+      max-width: 700px;
+      width: 100%;
+      margin-bottom: 2em;
+    }
+    h3 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin: 0.4em 0;
+    }
+    p {
+      color: #5d7c89;
+      line-height: 1.6;
+    }
+    .summary-color {
+      &::after {
+        clear: both;
+        content: "";
+        display: block;
+      }
+      > * {
+        float: left;
+      }
+    }
+    .color-swatch {
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px #ededed;
+      border-radius: 50%;
+    }
+    .color-label {
+      display: inline-block;
+      font-size: 1.8rem;
+      margin-top: 11px;
+      margin-left: 0.5em;
+    }
+    .summary-accessories {
+      color: #5d7c89;
+      list-style: disc;
+      list-style-position: inside;
+      p {
+        display: inline;
+      }
+    }
+  }
+}
+@include m.media(lg) {
+  .cd-builder-steps {
+    .summary-list {
+      text-align: center;
+      > li {
+        margin: 0 0 4.5em;
+      }
+      h2 {
+        font-size: 1.8rem;
+        &::before {
+          margin: 0 auto 0.6em;
+        }
+      }
+      h3 {
+        font-size: 4rem;
+        text-align: center;
+      }
+      p {
+        font-size: 1.8rem;
+      }
+      .product-preview {
+        margin: 0 auto 2em;
+      }
+      .summary-color {
+        display: inline-block;
+      }
+      .color-swatch {
+        height: 54px;
+        width: 54px;
+      }
+      .color-label {
+        font-size: 2.4rem;
+        margin-top: 15px;
+      }
+    }
+  }
+}

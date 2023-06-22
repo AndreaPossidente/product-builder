@@ -1,0 +1,143 @@
+@use "@/styles/mixins" as m;
+
+///
+/// Product Customizer | Colors
+///
+[data-color="white"] {
+  background-color: #fff;
+}
+[data-color="grey"] {
+  background-color: #303539;
+}
+[data-color="skyscraper"] {
+  background-color: #70757a;
+}
+[data-color="orange"] {
+  background-color: #cf5a16;
+}
+[data-color="perl"] {
+  background-color: #d1d1d1;
+}
+[data-color="black"] {
+  background-color: #212121;
+}
+
+///
+/// Product Customizer | Color Selector
+///
+.cd-product-customizer {
+  text-align: center;
+  li {
+    position: relative;
+    display: inline-block;
+    margin-right: 0.5em;
+    &:last-of-type {
+      margin-right: 0;
+    }
+    &::before {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(-5px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+      content: "";
+      bottom: 100%;
+      height: 0;
+      border: 8px solid transparent;
+      border-top-color: rgba(237, 237, 237, 0.8);
+      border-top-width: 10px;
+      border-top-width: 10px;
+    }
+    &::after {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(-5px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+      content: attr(data-content);
+      background-color: rgba(237, 237, 237, 0.8);
+      white-space: nowrap;
+      padding: 0.7em 1.1em;
+      border-radius: 2em;
+      bottom: calc(100% + 18px);
+    }
+    &:hover {
+      &::before {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%);
+      }
+      &::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%);
+      }
+    }
+  }
+  a {
+    display: inline-block;
+    overflow: hidden;
+    text-indent: 100%;
+    color: transparent;
+    white-space: nowrap;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #ededed;
+    transition: box-shadow 0.3s;
+  }
+  .selected {
+    a {
+      box-shadow: 0 0 0 2px #ffb500;
+    }
+  }
+}
+@include m.media(md) {
+  .cd-product-customizer {
+    li {
+      margin-right: 1em;
+    }
+    a {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
+
+///
+/// Product Customizer | Preview Image
+///
+.cd-product-previews {
+  position: relative;
+  margin: 4.5em 0;
+  > li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    img {
+      display: block;
+      width: 100%;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+  }
+  > li.selected {
+    position: relative;
+    opacity: 1;
+  }
+}
+@include m.media(lg) {
+  .cd-product-previews {
+    margin: 0 0 2em;
+  }
+}
+@include m.media(xl-h) {
+  .cd-product-previews {
+    margin-bottom: 4em;
+  }
+}

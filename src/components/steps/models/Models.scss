@@ -1,0 +1,97 @@
+@use "@/styles/mixins" as m;
+
+///
+/// Models Step
+///
+.cd-builder-steps {
+  .models-list {
+    text-align: center;
+    > li {
+      padding: 2.7em 0;
+    }
+    .name {
+      display: block;
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-top: 0.2em;
+    }
+    img {
+      display: block;
+      max-width: 80%;
+      margin: 1.8em auto 2.2em;
+    }
+    .price {
+      display: block;
+      color: #5d7c89;
+      margin-bottom: 1em;
+    }
+    .selected {
+      .radio {
+        &::before {
+          background: 0 0;
+          border-color: #ededed;
+          border-right-color: #ffb500;
+          transform: scale(1);
+          animation: cd-load 0.6s infinite;
+        }
+      }
+    }
+    .selected.loaded {
+      .radio {
+        &::before {
+          background: #ffb500;
+          border-color: #ffb500;
+          transform: scale(1.5);
+          animation: cd-bounce 0.5s;
+        }
+      }
+    }
+  }
+  .selected {
+    .radio {
+      &::before {
+        background: #ffb500;
+        border-color: #ffb500;
+        transform: scale(1.5);
+        animation: cd-bounce 0.5s;
+      }
+    }
+  }
+}
+
+///
+/// Models Step | Radio
+///
+.cd-step-content {
+  .radio {
+    position: relative;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      height: 100%;
+      width: 100%;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      background: url(/assets/svg/cd-icon-check.svg) no-repeat center center;
+    }
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      height: 100%;
+      width: 100%;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      border: 2px solid #ededed;
+      background: #fff;
+      transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
+      border-radius: 50%;
+    }
+  }
+}
