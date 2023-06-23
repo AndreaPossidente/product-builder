@@ -10,20 +10,15 @@ import { useEffect, useState } from "react";
 // Styles
 import "./Footer.scss";
 import { Step } from "@/types";
+import { useBuilder } from "@/hooks/useBuilder";
+import { useStepper } from "@/hooks/useStepper";
 
-interface FooterProps {
-  selectedCar: Car | null;
-  error: string | null;
-  currentStepId: number;
-  steps: Step[];
-}
-
-const Footer: React.FC<FooterProps> = ({
-  selectedCar,
-  error,
-  currentStepId,
-  steps,
-}) => {
+const Footer = () => {
+  const {
+    current: { selectedCar },
+    error,
+  } = useBuilder();
+  const { currentStepId, steps } = useStepper();
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {

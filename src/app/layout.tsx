@@ -1,5 +1,3 @@
-"use client";
-
 // Components
 import { Header, Footer } from "@/components/layout";
 import { StepperContextProvider, BuilderContextProvider } from "@/contexts";
@@ -8,8 +6,7 @@ import { StepperContextProvider, BuilderContextProvider } from "@/contexts";
 import "@/styles/index.scss";
 import "@/components/steps/Steps.scss";
 import { Metadata } from "next";
-import { useStepper } from "@/hooks/useStepper";
-import { useBuilder } from "@/hooks/useBuilder";
+import Head from "next/head";
 
 // SEO
 export const metadata: Metadata = {
@@ -22,32 +19,21 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { currentStepId, steps } = useStepper();
-  const {
-    current: { selectedCar },
-    error,
-  } = useBuilder();
-
   return (
     <html lang="en">
-      <head>
+      <Head>
         <link
-          href="https://fonts.googleapis.com/css?family=Lato:400,700"
+          href="https://fonts.googleapis.com/css?family=Lato:400,700&display=optional"
           rel="stylesheet"
         />
-      </head>
+      </Head>
       <body>
         <StepperContextProvider>
           <BuilderContextProvider>
             <div className="cd-product-builder">
               <Header />
               <div className="cd-builder-steps">{children}</div>
-              <Footer
-                selectedCar={selectedCar}
-                error={error}
-                currentStepId={currentStepId}
-                steps={steps}
-              />
+              <Footer />
             </div>
           </BuilderContextProvider>
         </StepperContextProvider>

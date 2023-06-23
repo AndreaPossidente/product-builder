@@ -1,0 +1,26 @@
+[
+  {
+    "id": "col1",
+    "name": "White",
+    "color": "white",
+    "image": "/assets/images/product01_col01.jpg",
+    "price": 0,
+    "currency": "$"
+  },
+  {
+    "id": "col2",
+    "name": "Mineral Grey",
+    "color": "grey",
+    "image": "/assets/images/product01_col02.jpg",
+    "price": 550,
+    "currency": "$"
+  },
+  {
+    "id": "col3",
+    "name": "Orange Metallic",
+    "color": "orange",
+    "image": "/assets/images/product01_col03.jpg",
+    "price": 550,
+    "currency": "$"
+  }
+]
